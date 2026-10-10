@@ -1,0 +1,2 @@
+Writable scratch folder. mPDF (build phase 7) needs somewhere to spool fonts and
+temporary PDF data; keep this folder present and writable (755).
