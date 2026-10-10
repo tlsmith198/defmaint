@@ -1,0 +1,193 @@
+/* ADMI Maintenance -- shop-floor UI layer on top of Bootstrap 5 */
+:root {
+  --admi-navy:   #12263f;
+  --admi-steel:  #24425f;
+  --admi-accent: #0d6efd;
+  --admi-line:   #dde3ea;
+  --admi-bg:     #f4f6f9;
+}
+
+body {
+  background: var(--admi-bg);
+  font-size: 0.9375rem;
+  padding-bottom: 3rem;
+}
+
+/* ---------- navbar ---------- */
+.admi-navbar {
+  background: var(--admi-navy);
+  border-bottom: 3px solid var(--admi-accent);
+  padding-top: .35rem;
+  padding-bottom: .35rem;
+}
+.admi-navbar .navbar-brand,
+.admi-navbar .nav-link { color: rgba(255,255,255,.85); }
+.admi-navbar .nav-link:hover,
+.admi-navbar .nav-link.active { color: #fff; }
+.admi-navbar .nav-link.active { box-shadow: inset 0 -3px 0 var(--admi-accent); }
+.admi-navbar .navbar-toggler { border-color: rgba(255,255,255,.4); }
+.admi-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.85)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.admi-logo { max-height: 34px; width: auto; background: #fff; padding: 2px 4px; border-radius: 3px; }
+.admi-mark {
+  font-weight: 700; letter-spacing: .06em; background: #fff; color: var(--admi-navy);
+  padding: .15rem .45rem; border-radius: 3px; font-size: .95rem;
+}
+.brand-text { font-weight: 500; letter-spacing: .02em; }
+
+/* ---------- page ---------- */
+.page-title { font-size: 1.35rem; font-weight: 600; color: var(--admi-navy); }
+.breadcrumb { font-size: .8125rem; margin-bottom: .25rem; }
+.card { border-color: var(--admi-line); box-shadow: 0 1px 2px rgba(18,38,63,.06); }
+.card-header {
+  background: #fff; border-bottom: 1px solid var(--admi-line);
+  font-weight: 600; color: var(--admi-navy);
+}
+
+/* ---------- dense tables ---------- */
+.table-admi { font-size: .875rem; background: #fff; }
+.table-admi > :not(caption) > * > * { padding: .45rem .6rem; vertical-align: middle; }
+.table-admi thead th {
+  background: #eef2f7; color: var(--admi-navy); font-weight: 600;
+  text-transform: uppercase; font-size: .72rem; letter-spacing: .04em;
+  border-bottom: 2px solid var(--admi-line); white-space: nowrap;
+}
+.table-admi tbody tr:hover { background: #f8fbff; }
+.sort-link { color: inherit; text-decoration: none; }
+.sort-link:hover { color: var(--admi-accent); }
+.row-link { cursor: pointer; }
+
+/* ---------- status colouring ---------- */
+.due-overdue { color: #b02a37; font-weight: 600; }
+.due-today   { color: #b8860b; font-weight: 600; }
+.due-soon    { color: #0a58ca; }
+tr.has-down  { box-shadow: inset 3px 0 0 #dc3545; }
+tr.is-retired td { opacity: .55; }
+
+.stat-card { border-left: 4px solid var(--admi-accent); }
+.stat-card .stat-value { font-size: 1.75rem; font-weight: 700; line-height: 1; color: var(--admi-navy); }
+.stat-card .stat-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6c757d; }
+.stat-card.danger  { border-left-color: #dc3545; }
+.stat-card.warning { border-left-color: #ffc107; }
+.stat-card.success { border-left-color: #198754; }
+
+/* ---------- forms ---------- */
+.form-label { font-weight: 600; font-size: .8125rem; color: var(--admi-steel); margin-bottom: .2rem; }
+.form-section-title {
+  font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: #6c757d;
+  border-bottom: 1px solid var(--admi-line); padding-bottom: .3rem; margin: 1.25rem 0 .75rem;
+}
+.form-text { font-size: .78rem; }
+.required::after { content: " *"; color: #dc3545; }
+
+/* ---------- spec sheet ---------- */
+.spec-table td { padding: .3rem .5rem; font-size: .85rem; }
+.spec-table td:first-child { color: #6c757d; width: 45%; }
+.spec-group-title {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--admi-accent); font-weight: 700; padding-top: .6rem;
+}
+
+/* ---------- history timeline ---------- */
+.timeline { position: relative; padding-left: 1.4rem; }
+.timeline::before {
+  content: ''; position: absolute; left: .42rem; top: .3rem; bottom: .3rem;
+  width: 2px; background: var(--admi-line);
+}
+.timeline-item { position: relative; padding-bottom: 1rem; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -1.12rem; top: .35rem;
+  width: .6rem; height: .6rem; border-radius: 50%;
+  background: #fff; border: 2px solid var(--admi-accent);
+}
+.timeline-item.kind-issue::before { border-color: #dc3545; }
+.timeline-item.kind-completion.fail::before { border-color: #dc3545; background: #dc3545; }
+.timeline-meta { font-size: .78rem; color: #6c757d; }
+
+/* ---------- asset photo ---------- */
+.asset-photo {
+  width: 100%; height: 190px; object-fit: cover;
+  border-radius: .375rem; border: 1px solid var(--admi-line); background: #fff;
+}
+.asset-photo-empty {
+  height: 190px; display: flex; align-items: center; justify-content: center;
+  color: #adb5bd; background: #fff; border: 1px dashed var(--admi-line); border-radius: .375rem;
+}
+
+.admi-footer {
+  border-top: 1px solid var(--admi-line); background: #fff;
+  padding: .6rem 0; color: #6c757d; margin-top: 2rem;
+}
+
+/* ---------- tablet / shop floor ---------- */
+@media (max-width: 991.98px) {
+  body { font-size: 1rem; }
+  .btn { padding: .5rem .9rem; }
+  .table-admi > :not(caption) > * > * { padding: .6rem .5rem; }
+  .form-control, .form-select { min-height: 2.75rem; font-size: 1rem; }
+  .form-check-input { width: 1.35rem; height: 1.35rem; }
+}
+
+/* ---------- print ---------- */
+@media print {
+  .admi-navbar, .admi-footer, .no-print, .btn { display: none !important; }
+  body { background: #fff; }
+  .card { box-shadow: none; border: 1px solid #999; }
+}
+
+/* ---------- calendar ---------- */
+.cal-table { font-size: .8rem; table-layout: fixed; background: #fff; }
+.cal-table td { padding: .3rem; vertical-align: top; }
+.cal-table .badge { font-weight: 500; font-size: .68rem; }
+
+/* ---------- completion form (shop-floor sized) ---------- */
+.step-card { border: 1px solid var(--admi-line); border-radius: .375rem; padding: .75rem; background: #fff; }
+.step-card + .step-card { margin-top: .6rem; }
+.step-card.is-fail { border-color: #dc3545; background: #fff5f5; }
+.step-card.is-pass { border-color: #198754; }
+.result-toggle .btn { min-width: 5.5rem; }
+.big-submit { font-size: 1.1rem; padding: .8rem 1.2rem; }
+.out-of-range { color: #b02a37; font-weight: 600; }
+
+/* ---------- batch close ---------- */
+.batch-row { border-bottom: 1px solid var(--admi-line); padding: .6rem .25rem; }
+.batch-row:last-child { border-bottom: 0; }
+@media (max-width: 767.98px) {
+  .result-toggle .btn { min-width: 4.5rem; padding: .55rem .6rem; }
+}
+
+/* ---------- setup mode ---------- */
+.setup-banner { border-left: 4px solid #fd7e14; }
+.danger-zone { border-color: #dc3545 !important; }
+.danger-zone .card-header { color: #b02a37; background: #fff5f5; }
+.bulk-bar {
+  position: sticky; bottom: 0; z-index: 5; background: #fff;
+  border-top: 2px solid var(--admi-accent); padding: .6rem .75rem;
+  box-shadow: 0 -2px 6px rgba(18,38,63,.08);
+}
+.go-live-banner { border-left: 4px solid var(--admi-accent); }
+
+/* ---------- Run Checks (quick tap checklist) ---------- */
+.run-tabs { padding-bottom: .25rem; }
+.run-task { padding: .75rem .9rem; transition: background-color .12s; }
+.run-label { cursor: pointer; user-select: none; }
+.run-tick {
+  flex: 0 0 auto; width: 3rem; height: 3rem; border-radius: .6rem; border: 2px solid #adb5bd;
+  background: #fff; color: transparent; font-size: 1.6rem; line-height: 1; display: flex;
+  align-items: center; justify-content: center; padding: 0;
+}
+.run-no { flex: 0 0 auto; color: #b02a37; border: 1px solid #f1aeb5; background: #fff; width: 2.4rem; height: 2.4rem; }
+.run-task.is-done { background: #eaf6ee; }
+.run-task.is-done .run-tick { background: #198754; border-color: #198754; color: #fff; }
+.run-task.is-done .run-label .fw-semibold { text-decoration: line-through; text-decoration-thickness: 1px; color: #4b5a52; }
+.run-task.is-no { background: #fff5f5; }
+.run-task.is-no .run-tick { border-color: #dc3545; }
+.run-task.is-no .run-no { background: #dc3545; color: #fff; border-color: #dc3545; }
+.run-machine.is-complete { border-color: #198754; }
+.run-machine.is-complete .card-header { background: #eaf6ee; }
+.run-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: #fff;
+  border-top: 1px solid var(--admi-line); padding: .6rem 0; box-shadow: 0 -2px 8px rgba(0,0,0,.08);
+}
+@media (max-width: 575.98px) { .run-bar .big-submit { font-size: 1rem; padding: .7rem .9rem; } }

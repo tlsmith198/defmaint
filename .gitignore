@@ -1,0 +1,8 @@
+config/config.php
+uploads/**
+!uploads/.htaccess
+!uploads/*/.gitkeep
+tmp/*
+!tmp/.gitkeep
+*.log
+.write_test_*
